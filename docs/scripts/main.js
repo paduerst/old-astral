@@ -26,10 +26,10 @@ $(document).ready(function(){
     json.time_sent = time_sent;
     
     $.post(
-      "https://script.google.com/macros/s/AKfycbwTT8iVHgzWdzn5Yrs-83nI4COzPHm6X6lQYmICaal1f-TyXxI/exec",
+      "http://localhost:5000/",
       json,
       function(data,status){
-        responseField.innerHTML = `<p>You've submitted a response!<br>Status: ${status}<br>Data added to row: ${data.row}</p>`;
+        responseField.innerHTML = `<p>You've submitted a response!<br>Status: ${status}<br>Response: ${data.response}</p>`;
     });
   });
 });
