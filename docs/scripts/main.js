@@ -1,14 +1,15 @@
 const url = 'http://localhost:8080';
 
-$(document).ready(function(){
-  $("p").click(function(){
-    $(this).hide();
-  });
-});
+// $(document).ready(function(){
+//   $("p").click(function(){
+//     $(this).hide();
+//   });
+// });
 
 function convertFormToJson(form) {
   var array = jQuery(form).serializeArray();
   var json = {};
+  json["command"] = form.name;
   
   jQuery.each(array, function() {
     json[this.name] = this.value || '';
@@ -28,6 +29,7 @@ $(document).ready(function(){
     var form = this;
     var json = convertFormToJson(form);
     var query = `?command=${json.command}&val1=${json.val1}&val2=${json.val2}`;
+    outputField.innerHTML = `<p>Output: ${query}</p>`;
     // responseField.innerHTML = `<p>Query: ${query}</p>`;
     var xhr = new XMLHttpRequest();
     xhr.open('GET', `${url}/${query}`, true);

@@ -17,17 +17,27 @@
         <h1 id="astral">ASTRAL</h1>
         <p>Front-end for ASTRAL: Arcane System for Tabletop Roleplaying from Any Location</p>
         Visit the <a target="_blank" rel="noopener noreferrer" href="https://github.com/paduerst/astral">GitHub repository</a> for this page.
+        <p>TODO: Add Home, Zoom (%), Memgo, and Memset.</p>
 
-        <p>If you click on me, I will disappear.</p>
-        <p>This is due to the magic of jQuery!</p>
-        
-        <form id="form" autocomplete="off">
-          Command: <input type="text" name="command" value=""><br>
-          Value 1: <input type="text" name="val1" value=""><br>
-          Value 2: <input type="text" name="val2" value=""><br>
+        <form id="form" name="pantilt" autocomplete="off">
+          Absolute Position (in degrees):<br>
+          Pan: <input type="text" name="val1" value=""><br>
+          Tilt: <input type="text" name="val2" value=""><br>
+          <input type="submit" value="Submit">
+        </form>
+        <br>
+        <form id="form" name="relpantilt" autocomplete="off">
+          Shift Position (in degrees):<br>
+          Pan: <input type="text" name="val1" value=""><br>
+          Tilt: <input type="text" name="val2" value=""><br>
           <input type="submit" value="Submit">
         </form>
 
+        <br>
+        <div id="outputField">
+            You have not submitted anything yet.
+        </div>
+        <br>
         <div id="responseField">
             You have not submitted anything yet.
         </div>
