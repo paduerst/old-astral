@@ -16,39 +16,37 @@
     <body>
         <h1 id="astral">ASTRAL</h1>
         <div id="urlField">
-          <form id="form_internal" name="url" autocomplete="off">
-            <label for="subdomain">https://</label>
-            <input type="text" id="subdomain" name="subdomain" value="subdomain" onfocus="this.select()" size="6">
-            <input type="text" id="rootdomain" name="rootdomain" value="trycloudflare.com" onfocus="this.select()" size="12">
-            <input type="submit" value="Set URL">
-          </form>
+          <h4>
+            <form id="form_internal" name="url" autocomplete="off">
+              <label for="subdomain">https://</label>
+              <input type="text" id="subdomain" name="subdomain" value="subdomain" onfocus="this.select()" size="6">
+              <label for="rootdomain">.</label>
+              <input type="text" id="rootdomain" name="rootdomain" value="trycloudflare.com" onfocus="this.select()" size="12">
+              <input type="submit" value="Set URL">
+            </form>
+          </h4>
         </div>
-        <br>
         <form id="form_external" name="home" autocomplete="off">
           <label for="home">Home:</label>
           <input type="submit" id="home" value="Home">
         </form>
         <br>
         <form id="form_external" name="pantilt" autocomplete="off">
-          <fieldset>
-            <legend>Absolute Position (in degrees):</legend>
-            <label for="pan">Pan:</label>
-            <input type="number" id="pan" pattern="[0-9]*" inputmode="numeric" name="val1" value="0" min="-360" max="360" onfocus="this.select()"><br>
-            <label for="tilt">Tilt:</label>
-            <input type="number" id="tilt" pattern="[0-9]*" inputmode="numeric" name="val2" value="0" min="-360" max="360" onfocus="this.select()"><br>
-            <input type="submit" value="Submit">
-          </fieldset>
+          <legend>Absolute Position (in degrees):</legend>
+          <label for="pan">Pan:</label>
+          <input type="number" id="pan" pattern="[0-9]*" inputmode="numeric" name="val1" value="0" min="-360" max="360" onfocus="this.select()"><br>
+          <label for="tilt">Tilt:</label>
+          <input type="number" id="tilt" pattern="[0-9]*" inputmode="numeric" name="val2" value="0" min="-360" max="360" onfocus="this.select()"><br>
+          <input type="submit" value="Submit">
         </form>
         <br>
         <form id="form_external" name="relpantilt" autocomplete="off">
-          <fieldset>
-            <legend>Shift Position (in degrees):</legend>
-            <label for="pan">Pan:</label>
-            <input type="number" id="pan" pattern="[0-9]*" inputmode="numeric" name="val1" value="0" min="-360" max="360" onfocus="this.select()"><br>
-            <label for="tilt">Tilt:</label>
-            <input type="number" id="tilt" pattern="[0-9]*" inputmode="numeric" name="val2" value="0" min="-360" max="360" onfocus="this.select()"><br>
-            <input type="submit" value="Submit">
-          </fieldset>
+          <legend>Shift Position (in degrees):</legend>
+          <label for="pan">Pan:</label>
+          <input type="number" id="pan" pattern="[0-9]*" inputmode="numeric" name="val1" value="0" min="-360" max="360" onfocus="this.select()"><br>
+          <label for="tilt">Tilt:</label>
+          <input type="number" id="tilt" pattern="[0-9]*" inputmode="numeric" name="val2" value="0" min="-360" max="360" onfocus="this.select()"><br>
+          <input type="submit" value="Submit">
         </form>
         <br>
         <form id="form_external" name="zoom" autocomplete="off">
@@ -76,15 +74,9 @@
 
         <br>
         <div id="outputField">
-          <p>You have not submitted anything yet. (Query url will appear here.)</p>
+          <p>Last submission: n/a</p>
         </div>
-        <div id="responseField">
-          <p>You have not submitted anything yet. (HTML Request response info will appear here. It's currently broken, so the Status should always say 0.)</p>
-        </div>
-
-        <br>
-        <p>Front-end for ASTRAL: Arcane System for Tabletop Roleplaying from Any Location</p>
-        <p>Visit the <a target="_blank" rel="noopener noreferrer" href="https://github.com/paduerst/astral">GitHub repository</a> for this page.</p>
-        <p>TODO: Add Current Positions (Pantilt and Zoom). Improve URL/subdomain functionality. Then make this page look nice.</p>
+        <p>Created by <a target="_blank" rel="noopener noreferrer" href="https://peter.duerst.me">Peter Duerst</a>. Visit the <a target="_blank" rel="noopener noreferrer" href="https://github.com/paduerst/astral">GitHub repository</a> for this page.</p>
+        <p>TODO: Add Current Positions (Pantilt and Zoom). Then make this page look nice.</p>
     </body>
 </html>
