@@ -36,16 +36,16 @@
           <fieldset>
             <legend>Shift Position (in degrees):</legend>
             <label for="pan">Pan:</label>
-            <input type="text" id="pan" name="val1" value="0"><br>
+            <input type="number" id="pan" pattern="[0-9]*" inputmode="numeric" name="val1" value="0" min="-180" max="180"><br>
             <label for="tilt">Tilt:</label>
-            <input type="text" id="tilt" name="val2" value="0"><br>
+            <input type="number" id="tilt" pattern="[0-9]*" inputmode="numeric" name="val2" value="0" min="-180" max="180"><br>
             <input type="submit" value="Submit">
           </fieldset>
         </form>
         <br>
         <form id="form" name="zoom" autocomplete="off">
           <label for="percentage">Zoom (%):</label>
-          <input type="text" id="percentage" name="val1" value="0">
+          <input type="number" id="percentage" pattern="[0-9]*" inputmode="numeric" name="val1" value="0" min="0" max="100">
           <input type="submit" value="Submit">
         </form>
         <br>
