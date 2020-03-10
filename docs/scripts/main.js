@@ -23,7 +23,7 @@ function updateUrl(json) {
   const subdomain = json.subdomain;
   const rootdomain = json.rootdomain;
   url = `https://${subdomain}.${rootdomain}`;
-  urlField.innerHTML = `<p><b>Session:</b> ${url}</p>`;
+  urlField.innerHTML = `<div class="form-group row row_fix col-form-label unbold">${url}</div>`;
 }
 
 function updateCurrentPosition(json) {
