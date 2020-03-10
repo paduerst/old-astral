@@ -25,7 +25,7 @@ function updateUrl(json) {
   subdomain = json.subdomain;
   rootdomain = json.rootdomain;
   url = `https://${subdomain}.${rootdomain}`;
-  urlField.innerHTML = `<div class="form-group row row_fix col-form-label unbold">${url}</div>`;
+  urlField.innerHTML = `<div class="form-group row row_fix col-form-label unbold"><span title="Refresh the page to reset the URL.">${url}</span></div>`;
 }
 
 function updateCurrentPosition(json) {

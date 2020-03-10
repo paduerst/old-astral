@@ -28,7 +28,9 @@
               <form id="form_internal" name="url" autocomplete="off">
                 <div class="form-group row row_fix">
                   <label class="col-form-label unbold" for="subdomain">https://</label>
-                  <input class="form-control input_text" type="text" id="subdomain" name="subdomain" value="session-code" onfocus="this.select()">
+                  <span title="The session code is randomly generated each time the camera starts up.">
+                    <input class="form-control input_text" type="text" id="subdomain" name="subdomain" value="session-code" onfocus="this.select()">
+                  </span>
                   <label class="col-form-label unbold" for="rootdomain">.</label>
                   <input type="text" class="input_stealth" id="rootdomain" name="rootdomain" value="trycloudflare.com" onfocus="this.select()" size="15">
                   <input type="submit" class="btn btn-primary" value="Set URL">
@@ -37,15 +39,19 @@
             </div>
           </div>
           <div class="col-sm-5" style="padding-top: 20px; margin-bottom: 10px;">
-            <div class="legend">Current Position</div>
+            <span title="ASTRAL tries to estimate the camera's current position, but it may get it wrong.">
+              <div class="legend">Current Position</div>
+            </span>
             <b>
               <div class="col-form-label label_static" id="panField">Pan: 0</div>
               <div class="col-form-label label_static" id="tiltField">Tilt: 0</div>
               <div class="col-form-label label_static" id="zoomField">Zoom: 0</div>
             </b>
-            <form id="form_external" name="home" autocomplete="off">
-              <input type="submit" class="btn btn-success" id="home" value="Home">
-            </form>
+            <span title="Home sets Pan and Tilt to 0°, but it doesn't alter Zoom.">
+              <form id="form_external" name="home" autocomplete="off">
+                <input type="submit" class="btn btn-success" id="home" value="Home">
+              </form>
+            </span>
           </div>
         </div>
       </div>
