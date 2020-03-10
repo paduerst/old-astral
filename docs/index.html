@@ -26,13 +26,16 @@
             </form>
           </h4>
         </div>
+        <legend>Current Position:</legend>
+        <div id="panField">Pan: 0</div>
+        <div id="tiltField">Tilt: 0</div>
+        <div id="zoomField">Zoom: 0</div>
         <form id="form_external" name="home" autocomplete="off">
-          <label for="home">Home:</label>
           <input type="submit" id="home" value="Home">
         </form>
         <br>
         <form id="form_external" name="pantilt" autocomplete="off">
-          <legend>Absolute Position (in degrees):</legend>
+          <legend>Absolute Position:</legend>
           <label for="pan">Pan:</label>
           <input type="number" id="pan" pattern="[0-9]*" inputmode="numeric" name="val1" value="0" min="-360" max="360" onfocus="this.select()"><br>
           <label for="tilt">Tilt:</label>
@@ -41,7 +44,7 @@
         </form>
         <br>
         <form id="form_external" name="relpantilt" autocomplete="off">
-          <legend>Shift Position (in degrees):</legend>
+          <legend>Shift Position:</legend>
           <label for="pan">Pan:</label>
           <input type="number" id="pan" pattern="[0-9]*" inputmode="numeric" name="val1" value="0" min="-360" max="360" onfocus="this.select()"><br>
           <label for="tilt">Tilt:</label>
@@ -50,13 +53,13 @@
         </form>
         <br>
         <form id="form_external" name="zoom" autocomplete="off">
-          <label for="percentage">Zoom (%):</label>
-          <input type="number" id="percentage" pattern="[0-9]*" inputmode="numeric" name="val1" value="0" min="0" max="100" onfocus="this.select()">
+          <legend>Zoom:</legend>
+          <input type="number" id="percentage" pattern="[0-9]*" inputmode="numeric" name="val1" value="0" min="0" max="100" onfocus="this.select()"><br>
           <input type="submit" value="Submit">
         </form>
         <br>
         <form id="form_external" name="mem" autocomplete="off">
-          <label for="commands">Choose a preset:</label>
+          <legend>Memory:</legend>
           <select id="commands" name="val1">
             <option value="goto">Goto</option>
             <option value="set">Set</option>
@@ -68,7 +71,7 @@
             <option value="4">4</option>
             <option value="5">5</option>
             <option value="6">6</option>
-          </select>
+          </select><br>
           <input type="submit" value="Submit">
         </form>
 
