@@ -28,9 +28,9 @@
               <form id="form_internal" name="url" autocomplete="off">
                 <div class="form-group row row_fix">
                   <label class="col-form-label" for="subdomain">https://</label>
-                  <input class="form-control input_text" type="text" id="subdomain" name="subdomain" value="subdomain" onfocus="this.select()" size="8">
+                  <input class="form-control input_text" type="text" id="subdomain" name="subdomain" value="session-code" onfocus="this.select()">
                   <label class="col-form-label" for="rootdomain">.</label>
-                  <input type="text" class="input_stealth" id="rootdomain" name="rootdomain" value="trycloudflare.com" onfocus="this.select()" size="16">
+                  <input type="text" class="input_stealth" id="rootdomain" name="rootdomain" value="trycloudflare.com" onfocus="this.select()" size="15">
                   <input type="submit" class="btn btn-primary" value="Set URL">
                 </div>
               </form>
@@ -38,9 +38,11 @@
           </div>
           <div class="col-sm-5 col_fix" style="padding-top: 20px;">
             <div class="legend">Current Position</div>
-            <div id="panField">Pan: 0</div>
-            <div id="tiltField">Tilt: 0</div>
-            <div id="zoomField">Zoom: 0</div>
+            <b>
+              <div class="col-form-label label_static" id="panField">Pan: 0</div>
+              <div class="col-form-label label_static" id="tiltField">Tilt: 0</div>
+              <div class="col-form-label label_static" id="zoomField">Zoom: 0</div>
+            </b>
             <form id="form_external" name="home" autocomplete="off">
               <input type="submit" class="btn btn-success" id="home" value="Home">
             </form>

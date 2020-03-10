@@ -37,7 +37,7 @@ body {
 }
 
 .input_text {
-    width: 20%;
+    width: 21%;
 }
 
 .select_fix {
@@ -46,6 +46,11 @@ body {
 
 .label_fix {
     margin-right: 8px;
+}
+
+.label_static {
+    margin-top: -10px;
+    margin-bottom: 0px;
 }
 
 .row_fix {
