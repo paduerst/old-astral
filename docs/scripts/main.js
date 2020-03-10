@@ -68,7 +68,7 @@ $(document).ready(function(){
     if (form.id === "form_external") {
       var json = convertFormToJson(form);
       var query = `?command=${json.command}&val1=${json.val1}&val2=${json.val2}`;
-      outputField.innerHTML = `<p>Last submission: ${url}/${query}</p>`;
+      outputField.innerHTML = `<p><b>Last submission:</b> ${url}/${query}</p>`;
       updateCurrentPosition(json);
       var xhr = new XMLHttpRequest();
       xhr.open('GET', `${url}/${query}`, true);
