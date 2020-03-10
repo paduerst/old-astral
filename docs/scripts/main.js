@@ -1,3 +1,5 @@
+let subdomain = 'subdomain';
+let rootdomain = 'rootdomain';
 const defaultUrl = 'http://localhost:8080';
 let url = defaultUrl;
 let currentPan = 0;
@@ -20,8 +22,8 @@ function convertFormToJson(form) {
 }
 
 function updateUrl(json) {
-  const subdomain = json.subdomain;
-  const rootdomain = json.rootdomain;
+  subdomain = json.subdomain;
+  rootdomain = json.rootdomain;
   url = `https://${subdomain}.${rootdomain}`;
   urlField.innerHTML = `<div class="form-group row row_fix col-form-label unbold">${url}</div>`;
 }
