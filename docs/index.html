@@ -13,78 +13,117 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script type="text/javascript" src="scripts/main.js"></script>
         <link href="https://fonts.googleapis.com/css2?family=BenchNine:wght@300&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <link href="solar_bootstrap.min.css" rel="stylesheet">
         <link href="styleBC.css" rel="stylesheet">
     </head>
     <body>
-        <div id="astral">ASTRAL</div>
-        <div id="urlField">
-          <form id="form_internal" name="url" autocomplete="off">
-            <label for="subdomain">https://</label>
-            <input type="text" id="subdomain" name="subdomain" value="subdomain" onfocus="this.select()" size="6">
-            <label for="rootdomain">.</label>
-            <input type="text" id="rootdomain" name="rootdomain" value="trycloudflare.com" onfocus="this.select()" size="12">
-            <input type="submit" value="Set URL">
-          </form>
-        </div>
-        <legend>Current Position:</legend>
-        <div id="panField">Pan: 0</div>
-        <div id="tiltField">Tilt: 0</div>
-        <div id="zoomField">Zoom: 0</div>
-        <form id="form_external" name="home" autocomplete="off">
-          <input type="submit" id="home" value="Home">
-        </form>
-        <br>
-        <form id="form_external" name="pantilt" autocomplete="off">
-          <fieldset>
-            <legend>Absolute Position:</legend>
-            <div class="form-group">
-              <label for="pan">Pan:</label>
-              <input type="number" id="pan" pattern="[0-9]*" inputmode="numeric" name="val1" value="0" min="-360" max="360" onfocus="this.select()"><br>
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-7 col_fix">
+            <div id="astral">ASTRAL</div>
+            <div id="urlField">
+              <form id="form_internal" name="url" autocomplete="off">
+                <div class="form-group row row_fix">
+                  <label class="col-form-label" for="subdomain">https://</label>
+                  <input class="form-control input_text" type="text" id="subdomain" name="subdomain" value="subdomain" onfocus="this.select()" size="8">
+                  <label class="col-form-label" for="rootdomain">.</label>
+                  <input type="text" class="input_stealth" id="rootdomain" name="rootdomain" value="trycloudflare.com" onfocus="this.select()" size="16">
+                  <input type="submit" class="btn btn-primary" value="Set URL">
+                </div>
+              </form>
             </div>
-            <label for="tilt">Tilt:</label>
-            <input type="number" id="tilt" pattern="[0-9]*" inputmode="numeric" name="val2" value="0" min="-360" max="360" onfocus="this.select()"><br>
-            <input type="submit" value="Submit">
-          </fieldset>
-        </form>
-        <br>
-        <form id="form_external" name="relpantilt" autocomplete="off">
-          <legend>Shift Position:</legend>
-          <label for="pan">Pan:</label>
-          <input type="number" id="pan" pattern="[0-9]*" inputmode="numeric" name="val1" value="0" min="-360" max="360" onfocus="this.select()"><br>
-          <label for="tilt">Tilt:</label>
-          <input type="number" id="tilt" pattern="[0-9]*" inputmode="numeric" name="val2" value="0" min="-360" max="360" onfocus="this.select()"><br>
-          <input type="submit" value="Submit">
-        </form>
-        <br>
-        <form id="form_external" name="zoom" autocomplete="off">
-          <legend>Zoom:</legend>
-          <input type="number" id="percentage" pattern="[0-9]*" inputmode="numeric" name="val1" value="0" min="0" max="100" onfocus="this.select()"><br>
-          <input type="submit" value="Submit">
-        </form>
-        <br>
-        <form id="form_external" name="mem" autocomplete="off">
-          <legend>Memory:</legend>
-          <select id="commands" name="val1">
-            <option value="goto">Goto</option>
-            <option value="set">Set</option>
-          </select>
-          <select id="presets" name="val2">
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-            <option value="6">6</option>
-          </select><br>
-          <input type="submit" value="Submit">
-        </form>
-
-        <br>
-        <div id="outputField">
-          <p>Last submission: n/a</p>
+          </div>
+          <div class="col-sm-5 col_fix" style="padding-top: 20px;">
+            <div class="legend">Current Position</div>
+            <div id="panField">Pan: 0</div>
+            <div id="tiltField">Tilt: 0</div>
+            <div id="zoomField">Zoom: 0</div>
+            <form id="form_external" name="home" autocomplete="off">
+              <input type="submit" class="btn btn-success" id="home" value="Home">
+            </form>
+          </div>
         </div>
-        <p>Created by <a target="_blank" rel="noopener noreferrer" href="https://peter.duerst.me">Peter Duerst</a>. Visit the <a target="_blank" rel="noopener noreferrer" href="https://github.com/paduerst/astral">GitHub repository</a> for this page.</p>
+      </div>
+
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-7 col_fix">
+            <form id="form_external" name="pantilt" autocomplete="off">
+              <fieldset>
+                <div class="legend">Absolute Position</div>
+                <div class="form-group row row_fix">
+                  <label class="col-form-label col-form-label-lg label_fix" for="pan">Pan:</label>
+                  <input type="number" class="form-control form-control-lg input_position" id="pan" pattern="[0-9]*" inputmode="numeric" name="val1" value="0" min="-360" max="360" onfocus="this.select()"><br>
+                </div>
+                <div class="form-group row row_fix">
+                  <label class="col-form-label col-form-label-lg label_fix" for="tilt">Tilt:</label>
+                  <input type="number" class="form-control form-control-lg input_position" id="tilt" pattern="[0-9]*" inputmode="numeric" name="val2" value="0" min="-360" max="360" onfocus="this.select()"><br>
+                </div>
+                <input type="submit" class="btn btn-success" value="Submit">
+              </fieldset>
+            </form>
+          </div>
+          <div class="col-sm-5 col_fix">
+            <form id="form_external" name="relpantilt" autocomplete="off">
+              <fieldset>
+                <div class="legend">Shift Position</div>
+                <div class="form-group row row_fix">
+                  <label class="col-form-label col-form-label-lg label_fix" for="pan">Pan:</label>
+                  <input type="number" class="form-control form-control-lg input_position" id="pan" pattern="[0-9]*" inputmode="numeric" name="val1" value="0" min="-360" max="360" onfocus="this.select()"><br>
+                </div>
+                <div class="form-group row row_fix">
+                  <label class="col-form-label col-form-label-lg label_fix" for="tilt">Tilt:</label>
+                  <input type="number" class="form-control form-control-lg input_position" id="tilt" pattern="[0-9]*" inputmode="numeric" name="val2" value="0" min="-360" max="360" onfocus="this.select()"><br>
+                </div>
+                <input type="submit" class="btn btn-success" value="Submit">
+              </fieldset>
+            </form>
+          </div>
+        </div>
+        <div class="row col_fix">
+          <div class="col-sm-7 col_fix">
+            <form id="form_external" name="zoom" autocomplete="off">
+              <div class="legend">Zoom</div>
+              <div class="form-group row row_fix">
+                <input type="number" class="form-control form-control-lg input_position" id="percentage" pattern="[0-9]*" inputmode="numeric" name="val1" value="0" min="0" max="100" onfocus="this.select()">
+              </div>
+              <input type="submit" class="btn btn-success" value="Submit">
+            </form>
+          </div>
+          <div class="col-sm-5 col_fix">
+            <form id="form_external" name="mem" autocomplete="off">
+              <div class="legend">Memory</div>
+              <div class="form-group row row_fix">
+                <select class="form-control form-control-lg select_fix" id="commands" name="val1">
+                  <option value="goto">Goto</option>
+                  <option value="set">Set</option>
+                </select>
+                <select class="form-control form-control-lg select_fix" id="presets" name="val2">
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                </select>
+              </div>
+              <input type="submit" class="btn btn-success" value="Submit">
+            </form>
+          </div>
+        </div>
+      </div>
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12 col_fix">
+            <div id="outputField">
+              <p>Last submission: n/a</p>
+            </div>
+            <p>Created by <a target="_blank" rel="noopener noreferrer" href="https://peter.duerst.me">Peter Duerst</a>. Visit the <a target="_blank" rel="noopener noreferrer" href="https://github.com/paduerst/astral">GitHub repository</a> for this page.</p>
+          </div>
+        </div>
+      </div>
     </body>
 </html>

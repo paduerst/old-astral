@@ -1,10 +1,58 @@
+body {
+    max-width: 700px;
+    margin: auto;
+    padding: 0 20px 0 20px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 12px;
+}
+
 #astral {
     font-family: 'BenchNine', sans-serif;
     font-size: 72px;
     padding: 0px;
     margin: 0px;
+    margin-bottom: -10px;
 }
 
 #urlField {
     
+}
+
+.input_stealth{
+    display:block;
+    color:#839496;
+    background-color:transparent;
+    border:solid transparent;
+    border-width:1px 0;
+}
+
+.legend {
+    font-family: 'BenchNine', sans-serif;
+    font-size: 24px;
+    letter-spacing: 1px;
+}
+
+.input_position {
+    width: 20%;
+}
+
+.input_text {
+    width: 20%;
+}
+
+.select_fix {
+    width: 30%;
+}
+
+.label_fix {
+    margin-right: 8px;
+}
+
+.row_fix {
+    margin-left: 0px;
+}
+
+.col_fix {
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
