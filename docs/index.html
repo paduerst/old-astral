@@ -23,14 +23,14 @@
       <div class="container">
         <div class="row">
           <div class="col-sm-7" style="margin-bottom: -20px;">
-            <div id="astral">ASTRAL</div>
+            <span class="help_text" title="This website is the control panel for a camera connected to a video call. Setting the URL with the randomly generated session code lets you send commands. Refresh to reset the URL.">
+              <div id="astral">ASTRAL</div>
+            </span>
             <div id="urlField">
               <form id="form_internal" name="url" autocomplete="off">
                 <div class="form-group row row_fix">
                   <label class="col-form-label unbold" for="subdomain">https://</label>
-                  <span title="The session code is randomly generated each time the camera starts up.">
-                    <input class="form-control input_text" type="text" id="subdomain" name="subdomain" value="session-code" onfocus="this.select()">
-                  </span>
+                  <input class="form-control input_text" type="text" id="subdomain" name="subdomain" value="session-code" onfocus="this.select()">
                   <label class="col-form-label unbold" for="rootdomain">.</label>
                   <input type="text" class="input_stealth" id="rootdomain" name="rootdomain" value="trycloudflare.com" onfocus="this.select()" size="15">
                   <input type="submit" class="btn btn-primary" value="Set URL">
@@ -39,19 +39,17 @@
             </div>
           </div>
           <div class="col-sm-5" style="padding-top: 20px; margin-bottom: 10px;">
-            <span title="ASTRAL tries to estimate the camera's current position, but it may get it wrong.">
-              <div class="legend">Current Position</div>
+            <span class="help_text legend" title="ASTRAL tries to estimate the camera's current position/zoom based on commmands you send. Home sets Pan and Tilt to 0°, but it doesn't alter Zoom.">
+              Current Position
             </span>
             <b>
               <div class="col-form-label label_static" id="panField">Pan: 0</div>
               <div class="col-form-label label_static" id="tiltField">Tilt: 0</div>
               <div class="col-form-label label_static" id="zoomField">Zoom: 0</div>
             </b>
-            <span title="Home sets Pan and Tilt to 0°, but it doesn't alter Zoom.">
-              <form id="form_external" name="home" autocomplete="off">
-                <input type="submit" class="btn btn-success" id="home" value="Home">
-              </form>
-            </span>
+            <form id="form_external" name="home" autocomplete="off">
+              <input type="submit" class="btn btn-success" id="home" value="Home">
+            </form>
           </div>
         </div>
       </div>
@@ -61,7 +59,9 @@
           <div class="col-sm-7 col_fix">
             <form id="form_external" name="pantilt" autocomplete="off">
               <fieldset>
-                <div class="legend">Absolute Position</div>
+                <span class="help_text legend" onclick="showHelp()" title="Set the absolute rotation of the camera. Pan is left-right turning (-97° to 97°). Tilt is up-down (-32° to 32°).">
+                  Absolute Position
+                </span>
                 <div class="form-group row row_fix">
                   <label class="col-form-label col-form-label-lg label_fix" for="pan">Pan:</label>
                   <input type="number" class="form-control form-control-lg input_position" id="pan" pattern="[0-9]*" inputmode="numeric" name="val1" value="0" min="-360" max="360" onfocus="this.select()"><br>
@@ -77,7 +77,9 @@
           <div class="col-sm-5 col_fix">
             <form id="form_external" name="relpantilt" autocomplete="off">
               <fieldset>
-                <div class="legend">Shift Position</div>
+                <span class="help_text legend" title="Rotate the camera relative to its current position.">
+                  Shift Position
+                </span>
                 <div class="form-group row row_fix">
                   <label class="col-form-label col-form-label-lg label_fix" for="pan">Pan:</label>
                   <input type="number" class="form-control form-control-lg input_position" id="pan" pattern="[0-9]*" inputmode="numeric" name="val1" value="0" min="-360" max="360" onfocus="this.select()"><br>
@@ -94,7 +96,9 @@
         <div class="row col_fix">
           <div class="col-sm-7 col_fix">
             <form id="form_external" name="zoom" autocomplete="off">
-              <div class="legend">Zoom</div>
+                <span class="help_text legend" title="Analog zoom from 0% (widest) to 100% (narrowest).">
+                  Zoom
+                </span>
               <div class="form-group row row_fix input-group mb-3" style="width: 100px;">
                 <input type="number" class="form-control form-control-lg" id="percentage" pattern="[0-9]*" inputmode="numeric" name="val1" value="0" min="0" max="100" onfocus="this.select()">
                 <div class="input-group-append">
@@ -106,7 +110,9 @@
           </div>
           <div class="col-sm-5 col_fix">
             <form id="form_external" name="mem" autocomplete="off">
-              <div class="legend">Memory</div>
+                <span class="help_text legend" title="Camera can store positions for later recall. This includes Pan, Tilt, and Zoom.">
+                  Memory
+                </span>
               <div class="form-group row row_fix">
                 <select class="form-control form-control-lg" id="commands" name="val1" style="width: 80px;">
                   <option value="goto">Goto</option>
@@ -133,7 +139,7 @@
             <div id="outputField">
               <p><b>Last submission:</b> n/a</p>
             </div>
-            <p>Created by <a target="_blank" rel="noopener noreferrer" href="https://peter.duerst.me">Peter Duerst</a>. Visit the <a target="_blank" rel="noopener noreferrer" href="https://github.com/paduerst/astral">GitHub repository</a> for this page.</p>
+            <p>Created by <a target="_blank" rel="noopener noreferrer" href="https://peter.duerst.me">Peter Duerst</a>. Visit the <a target="_blank" rel="noopener noreferrer" href="https://github.com/paduerst/astral">GitHub repository</a> for this page. Hover over titles for help text.</p>
           </div>
         </div>
       </div>
