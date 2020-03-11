@@ -87,3 +87,22 @@ $(document).ready(function(){
     }
   });
 });
+
+function helpTextHandler(event) {
+  event.preventDefault();
+  var span = this;
+  var nodes = span.childNodes;
+  if (nodes.length === 1 || nodes.length === 3) {
+    var node = document.createElement("div")
+    var textNode = document.createTextNode(`${span.title}`);
+    node.appendChild(textNode);
+    node.classList.add("help_subtext");
+    span.appendChild(node);
+  } else {
+    span.removeChild(nodes[nodes.length-1]);
+  }
+}
+
+$(document).ready(function(){
+  $("span.help_text").click(helpTextHandler);
+});

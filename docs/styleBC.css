@@ -44,6 +44,13 @@ a {
     letter-spacing: 1px;
 }
 
+.help_subtext {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.25rem;
+    letter-spacing: normal;
+    margin-bottom: 10px;
+}
+
 .input_position {
     width: 110px;
     display: flex;
