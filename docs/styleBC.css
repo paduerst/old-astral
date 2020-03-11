@@ -3,7 +3,7 @@ body {
     margin: auto;
     padding: 0 20px 0 20px;
     font-family: 'Open Sans', sans-serif;
-    font-size: 12px;
+    font-size: 1.25rem;
 }
 
 a {
@@ -45,7 +45,11 @@ a {
 }
 
 .input_position {
-    width: 80px;
+    width: 110px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: -3px;
 }
 
 .input_text {
@@ -57,7 +61,7 @@ a {
 }
 
 .label_fix {
-    margin-right: 8px;
+    width: 30%;
 }
 
 .label_static {
