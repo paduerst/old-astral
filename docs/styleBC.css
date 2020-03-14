@@ -3,7 +3,11 @@ body {
     margin: auto;
     padding: 0 20px 0 20px;
     font-family: 'Open Sans', sans-serif;
-    font-size: 12px;
+    font-size: 1.25rem;
+}
+
+a {
+    font-weight: bold;
 }
 
 #astral {
@@ -14,11 +18,19 @@ body {
     margin-bottom: -10px;
 }
 
-#urlField {
-    
+.unbold {
+    font-weight: normal;
 }
 
-.input_stealth{
+.btn_stealth {
+    opacity: 0;
+}
+
+.btn_stealth:hover {
+    opacity: 100;
+}
+
+.input_stealth {
     display:block;
     color:#839496;
     background-color:transparent;
@@ -32,12 +44,23 @@ body {
     letter-spacing: 1px;
 }
 
+.help_subtext {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.25rem;
+    letter-spacing: normal;
+    margin-bottom: 10px;
+}
+
 .input_position {
-    width: 20%;
+    width: 110px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: -3px;
 }
 
 .input_text {
-    width: 20%;
+    width: 80px;
 }
 
 .select_fix {
@@ -45,7 +68,12 @@ body {
 }
 
 .label_fix {
-    margin-right: 8px;
+    width: 30%;
+}
+
+.label_static {
+    margin-top: -10px;
+    margin-bottom: 0px;
 }
 
 .row_fix {

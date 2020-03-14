@@ -7,6 +7,7 @@
         <link rel="icon" href="images/favicon.png"/>
         <title>ASTRAL | The Arcane System for Tabletop Roleplaying from Any Location</title>
         <meta property="og:title" content="ASTRAL">
+        <meta property="og:type" content="website">
         <meta property="og:description" content="Arcane System for Tabletop Roleplaying from Any Location.">
         <meta property="og:image" content="https://astral.duerst.me/images/preview.png">
         <meta property="og:url" content="https://astral.duerst.me/">
@@ -21,25 +22,31 @@
     <body>
       <div class="container">
         <div class="row">
-          <div class="col-sm-7 col_fix">
-            <div id="astral">ASTRAL</div>
+          <div class="col-sm-7" style="margin-bottom: -20px;">
+            <span class="help_text astral" title="This website is the control panel for a camera connected to a video call. Setting the URL with the randomly generated session code lets you send commands. Refresh to reset the URL.">
+              <div id="astral">ASTRAL</div>
+            </span>
             <div id="urlField">
               <form id="form_internal" name="url" autocomplete="off">
                 <div class="form-group row row_fix">
-                  <label class="col-form-label" for="subdomain">https://</label>
-                  <input class="form-control input_text" type="text" id="subdomain" name="subdomain" value="subdomain" onfocus="this.select()" size="8">
-                  <label class="col-form-label" for="rootdomain">.</label>
-                  <input type="text" class="input_stealth" id="rootdomain" name="rootdomain" value="trycloudflare.com" onfocus="this.select()" size="16">
+                  <label class="col-form-label unbold" for="subdomain">https://</label>
+                  <input class="form-control input_text" type="text" id="subdomain" name="subdomain" value="session-code" onfocus="this.select()">
+                  <label class="col-form-label unbold" for="rootdomain">.</label>
+                  <input type="text" class="input_stealth" id="rootdomain" name="rootdomain" value="trycloudflare.com" onfocus="this.select()" size="15">
                   <input type="submit" class="btn btn-primary" value="Set URL">
                 </div>
               </form>
             </div>
           </div>
-          <div class="col-sm-5 col_fix" style="padding-top: 20px;">
-            <div class="legend">Current Position</div>
-            <div id="panField">Pan: 0</div>
-            <div id="tiltField">Tilt: 0</div>
-            <div id="zoomField">Zoom: 0</div>
+          <div class="col-sm-5" style="padding-top: 20px; margin-bottom: 10px;">
+            <span class="help_text legend" title="ASTRAL tries to estimate the camera's current position/zoom based on commmands you send. Home sets Pan and Tilt to 0°, but it doesn't alter Zoom.">
+              Current Position
+            </span>
+            <b>
+              <div class="col-form-label label_static" id="panField">Pan: 0</div>
+              <div class="col-form-label label_static" id="tiltField">Tilt: 0</div>
+              <div class="col-form-label label_static" id="zoomField">Zoom: 0</div>
+            </b>
             <form id="form_external" name="home" autocomplete="off">
               <input type="submit" class="btn btn-success" id="home" value="Home">
             </form>
@@ -52,14 +59,26 @@
           <div class="col-sm-7 col_fix">
             <form id="form_external" name="pantilt" autocomplete="off">
               <fieldset>
-                <div class="legend">Absolute Position</div>
-                <div class="form-group row row_fix">
-                  <label class="col-form-label col-form-label-lg label_fix" for="pan">Pan:</label>
-                  <input type="number" class="form-control form-control-lg input_position" id="pan" pattern="[0-9]*" inputmode="numeric" name="val1" value="0" min="-360" max="360" onfocus="this.select()"><br>
+                <span class="help_text legend" onclick="showHelp()" title="Set the absolute rotation of the camera. Pan is left-right turning (-97° to 97°). Tilt is up-down (-32° to 32°).">
+                  Absolute Position
+                </span>
+                <div class="form-group input_position">
+                  <label class="control-label label_fix" for="pan">Pan</label>
+                  <div class="input-group mb-3">
+                    <input type="number" class="form-control form-control-lg" id="pan" pattern="[0-9]*" inputmode="numeric" name="val1" value="0" min="-360" max="360" onfocus="this.select()">
+                    <div class="input-group-append">
+                      <span class="input-group-text">°</span>
+                    </div>
+                  </div>
                 </div>
-                <div class="form-group row row_fix">
-                  <label class="col-form-label col-form-label-lg label_fix" for="tilt">Tilt:</label>
-                  <input type="number" class="form-control form-control-lg input_position" id="tilt" pattern="[0-9]*" inputmode="numeric" name="val2" value="0" min="-360" max="360" onfocus="this.select()"><br>
+                <div class="form-group input_position">
+                  <label class="control-label label_fix" for="tilt">Tilt</label>
+                  <div class="input-group mb-3">
+                    <input type="number" class="form-control form-control-lg" id="tilt" pattern="[0-9]*" inputmode="numeric" name="val2" value="0" min="-360" max="360" onfocus="this.select()">
+                    <div class="input-group-append">
+                      <span class="input-group-text">°</span>
+                    </div>
+                  </div>
                 </div>
                 <input type="submit" class="btn btn-success" value="Submit">
               </fieldset>
@@ -68,14 +87,26 @@
           <div class="col-sm-5 col_fix">
             <form id="form_external" name="relpantilt" autocomplete="off">
               <fieldset>
-                <div class="legend">Shift Position</div>
-                <div class="form-group row row_fix">
-                  <label class="col-form-label col-form-label-lg label_fix" for="pan">Pan:</label>
-                  <input type="number" class="form-control form-control-lg input_position" id="pan" pattern="[0-9]*" inputmode="numeric" name="val1" value="0" min="-360" max="360" onfocus="this.select()"><br>
+                <span class="help_text legend" title="Rotate the camera relative to its current position.">
+                  Shift Position
+                </span>
+                <div class="form-group input_position">
+                  <label class="control-label label_fix" for="relpan">Pan</label>
+                  <div class="input-group mb-3">
+                    <input type="number" class="form-control form-control-lg" id="relpan" pattern="[0-9]*" inputmode="numeric" name="val1" value="0" min="-360" max="360" onfocus="this.select()">
+                    <div class="input-group-append">
+                      <span class="input-group-text">°</span>
+                    </div>
+                  </div>
                 </div>
-                <div class="form-group row row_fix">
-                  <label class="col-form-label col-form-label-lg label_fix" for="tilt">Tilt:</label>
-                  <input type="number" class="form-control form-control-lg input_position" id="tilt" pattern="[0-9]*" inputmode="numeric" name="val2" value="0" min="-360" max="360" onfocus="this.select()"><br>
+                <div class="form-group input_position">
+                  <label class="control-label label_fix" for="reltilt">Tilt</label>
+                  <div class="input-group mb-3">
+                    <input type="number" class="form-control form-control-lg" id="reltilt" pattern="[0-9]*" inputmode="numeric" name="val2" value="0" min="-360" max="360" onfocus="this.select()">
+                    <div class="input-group-append">
+                      <span class="input-group-text">°</span>
+                    </div>
+                  </div>
                 </div>
                 <input type="submit" class="btn btn-success" value="Submit">
               </fieldset>
@@ -85,22 +116,33 @@
         <div class="row col_fix">
           <div class="col-sm-7 col_fix">
             <form id="form_external" name="zoom" autocomplete="off">
-              <div class="legend">Zoom</div>
-              <div class="form-group row row_fix">
-                <input type="number" class="form-control form-control-lg input_position" id="percentage" pattern="[0-9]*" inputmode="numeric" name="val1" value="0" min="0" max="100" onfocus="this.select()">
+              <span class="help_text legend" title="Analog zoom from 0% (widest) to 100% (narrowest).">
+                Zoom
+              </span>
+              <div class="form-group">
+                <div class="form-group" style="width: 90px;">
+                  <div class="input-group mb-3">
+                    <input type="number" class="form-control form-control-lg" id="percentage" pattern="[0-9]*" inputmode="numeric" name="val1" value="0" min="0" max="100" onfocus="this.select()">
+                    <div class="input-group-append">
+                      <span class="input-group-text">%</span>
+                    </div>
+                  </div>
+                </div>
               </div>
               <input type="submit" class="btn btn-success" value="Submit">
             </form>
           </div>
           <div class="col-sm-5 col_fix">
             <form id="form_external" name="mem" autocomplete="off">
-              <div class="legend">Memory</div>
+              <span class="help_text legend" title="Camera can store positions for later recall. This includes Pan, Tilt, and Zoom.">
+                Memory
+              </span>
               <div class="form-group row row_fix">
-                <select class="form-control form-control-lg select_fix" id="commands" name="val1">
+                <select class="form-control form-control-lg" id="commands" name="val1" style="width: 80px;">
                   <option value="goto">Goto</option>
                   <option value="set">Set</option>
                 </select>
-                <select class="form-control form-control-lg select_fix" id="presets" name="val2">
+                <select class="form-control form-control-lg" id="presets" name="val2" style="width: 50px;">
                   <option value="1">1</option>
                   <option value="2">2</option>
                   <option value="3">3</option>
@@ -119,9 +161,9 @@
         <div class="row">
           <div class="col-sm-12 col_fix">
             <div id="outputField">
-              <p>Last submission: n/a</p>
+              <p><b>Last submission:</b> n/a</p>
             </div>
-            <p>Created by <a target="_blank" rel="noopener noreferrer" href="https://peter.duerst.me">Peter Duerst</a>. Visit the <a target="_blank" rel="noopener noreferrer" href="https://github.com/paduerst/astral">GitHub repository</a> for this page.</p>
+            <p>Created by <a target="_blank" rel="noopener noreferrer" href="https://peter.duerst.me">Peter Duerst</a>. Visit the <a target="_blank" rel="noopener noreferrer" href="https://github.com/paduerst/astral">GitHub repository</a> for this page. Click (or hover over) titles for help text.</p>
             <div id="responseField"></div>
           </div>
         </div>

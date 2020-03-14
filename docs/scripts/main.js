@@ -1,3 +1,5 @@
+let subdomain = 'subdomain';
+let rootdomain = 'rootdomain';
 const defaultUrl = 'http://localhost:8080';
 let url = defaultUrl;
 let currentPan = 0;
@@ -20,10 +22,10 @@ function convertFormToJson(form) {
 }
 
 function updateUrl(json) {
-  const subdomain = json.subdomain;
-  const rootdomain = json.rootdomain;
+  subdomain = json.subdomain;
+  rootdomain = json.rootdomain;
   url = `https://${subdomain}.${rootdomain}`;
-  urlField.innerHTML = `<p>Session: ${url}</p>`;
+  urlField.innerHTML = `<div class="form-group row row_fix col-form-label unbold">${url}</div>`;
 }
 
 function updateCurrentPosition(json) {
@@ -68,7 +70,7 @@ $(document).ready(function(){
     if (form.id === "form_external") {
       var json = convertFormToJson(form);
       var query = `?command=${json.command}&val1=${json.val1}&val2=${json.val2}`;
-      outputField.innerHTML = `<p>Last submission: ${url}/${query}</p>`;
+      outputField.innerHTML = `<p><b>Last submission:</b> ${url}/${query}</p>`;
       updateCurrentPosition(json);
       var xhr = new XMLHttpRequest();
       xhr.open('GET', `${url}/${query}`, true);
@@ -84,4 +86,23 @@ $(document).ready(function(){
       updateUrl(json);
     }
   });
+});
+
+function helpTextHandler(event) {
+  event.preventDefault();
+  var span = this;
+  var nodes = span.childNodes;
+  if (nodes.length === 1 || nodes.length === 3) {
+    var node = document.createElement("div")
+    var textNode = document.createTextNode(`${span.title}`);
+    node.appendChild(textNode);
+    node.classList.add("help_subtext");
+    span.appendChild(node);
+  } else {
+    span.removeChild(nodes[nodes.length-1]);
+  }
+}
+
+$(document).ready(function(){
+  $("span.help_text").click(helpTextHandler);
 });
