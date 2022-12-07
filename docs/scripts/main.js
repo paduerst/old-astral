@@ -11,6 +11,8 @@ const lbPan = -97;
 const ubTilt = 32;
 const lbTilt = -32;
 
+const urlParams = new URLSearchParams(window.location.search);
+
 function convertFormToJson(form) {
   var array = jQuery(form).serializeArray();
   var json = {};
@@ -106,3 +108,11 @@ function helpTextHandler(event) {
 $(document).ready(function(){
   $("span.help_text").click(helpTextHandler);
 });
+
+if (urlParams.has("code")) {
+  let code = urlParams.get("code");
+  console.log(`Session code from URL: ${code}`);
+  document.getElementById("subdomain").value = code;
+  const json = convertFormToJson(document.getElementById("form_internal"));
+  updateUrl(json);
+}
